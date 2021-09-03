@@ -1,0 +1,20 @@
+@use 'breakpoint' as *;
+// 300;600;800
+
+h1,
+h2,
+h3 {
+  font-weight: 800 !important;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+
+p,
+span {
+  font-weight: 300;
+}

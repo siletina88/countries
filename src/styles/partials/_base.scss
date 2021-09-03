@@ -1,0 +1,25 @@
+@use 'breakpoint' as *;
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+*,
+*::before,
+*::after {
+  padding: 0px;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html,
+body {
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+.container {
+  width: 100vw;
+  overflow-x: none;
+}

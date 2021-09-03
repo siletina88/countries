@@ -1,0 +1,58 @@
+@import "../styles/partials/theme";
+@import "../styles/partials/breakpoint";
+.navbarContainer {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6rem;
+  background: $clr-white-elements;
+  height: 90px;
+  width: 100%;
+  box-shadow: 0px 0px 5px 5px rgba(192, 192, 192, 0.172);
+  color: $clr-white-text;
+  transition: background 200ms ease;
+
+  @include breakpoint(tablet) {
+    padding: 0 2rem;
+    h1 {
+      font-size: 20px;
+      padding: 0 0;
+    }
+    p {
+      font-size: 15px;
+    }
+  }
+
+  @include breakpoint(mobileonly) {
+    padding: 0 2rem;
+    h1 {
+      font-size: 16px;
+      padding: 0 0;
+    }
+    p {
+      font-size: 13px;
+    }
+  }
+
+  .darkModeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 200ms;
+
+    p {
+      line-height: 1;
+      font-weight: 600;
+    }
+  }
+  &.darkMode {
+    background: $clr-dark-elements;
+    color: $clr-dark-text;
+    box-shadow: 0px 1px 10px 3px rgba(36, 36, 36, 0.186);
+    transition: background 200ms ease;
+  }
+}

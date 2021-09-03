@@ -1,0 +1,75 @@
+@import "../styles/partials/theme";
+@import "./countriesList.scss";
+@import "../styles/partials/breakpoint";
+
+.Link {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  all: unset;
+}
+
+.card {
+  display: flex;
+  flex: 1 1 17%;
+  flex-direction: column;
+  max-width: 320px;
+  height: 330px;
+  border-radius: 7px;
+  background: $clr-white-elements;
+  overflow: hidden;
+  cursor: pointer;
+
+  box-shadow: 0px 0px 10px 4px rgba(140, 140, 140, 0.076);
+  transition: background 200ms ease;
+
+  @include breakpoint(laptop) {
+    flex: 1 1 25%;
+  }
+
+  @include breakpoint(tablet) {
+    flex: 1 1 30%;
+  }
+
+  &.darkMode {
+    background: $clr-dark-elements;
+    color: $clr-dark-text;
+    box-shadow: 0px 0px 10px 3px rgba(44, 44, 44, 0.213);
+    transition: background 200ms ease;
+  }
+
+  .cardTop {
+    width: 100%;
+    height: 45%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  .cardBottom {
+    padding: 1.5rem 1.2rem;
+    height: 56%;
+    transition: background 200ms ease;
+
+    &.darkMode {
+      background: $clr-dark-elements;
+      color: $clr-dark-text;
+
+      transition: background 200ms ease;
+    }
+
+    .title {
+      margin-bottom: 1rem;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    p {
+      font-size: 14px;
+      font-weight: 600;
+      padding: 0.1rem 0;
+    }
+  }
+}
