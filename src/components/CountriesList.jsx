@@ -19,7 +19,7 @@ export default function CountriesList({ isDarkMode, setIsDarkMode }) {
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
-    if (searchTerm.length > 2) {
+    if (searchTerm.length > 1) {
       setIsMinSearchLength(true);
     } else {
       setIsMinSearchLength(false);
