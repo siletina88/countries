@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./CountriesList.scss";
+import "./countriesList.scss";
 
 import CountryCard from "./CountryCard";
 import axios from "axios";
