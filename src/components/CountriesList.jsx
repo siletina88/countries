@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./countriesList.scss";
-import { AiOutlineSearch } from "react-icons/ai";
-import { BiChevronDown } from "react-icons/bi";
-import Country from "./Country";
+import "./CountriesList.scss";
+
+import CountryCard from "./CountryCard";
 import axios from "axios";
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import SearchAndFilter from "./SearchAndFilter";
 
 export default function CountriesList({ isDarkMode, setIsDarkMode }) {
   const [isToggled, setIsToggled] = useState(false);
@@ -14,7 +14,7 @@ export default function CountriesList({ isDarkMode, setIsDarkMode }) {
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [isMinSearchLength, setIsMinSearchLength] = useState(false);
-  const history = useHistory();
+
   const location = useLocation();
 
   const handleChange = (e) => {
@@ -32,12 +32,6 @@ export default function CountriesList({ isDarkMode, setIsDarkMode }) {
     } else if (searchTerm) {
       setIsMinSearchLength(false);
     }
-  };
-
-  const DarkModeCheck = (className) => {
-    if (isDarkMode) {
-      return className + " darkMode";
-    } else return className;
   };
 
   useEffect(() => {
@@ -71,87 +65,21 @@ export default function CountriesList({ isDarkMode, setIsDarkMode }) {
       }
       onClick={CloseSubmenus}
     >
-      <div className="searchAndFilter">
-        <div className={DarkModeCheck("search")}>
-          <i>
-            <AiOutlineSearch />
-          </i>
-          <input
-            type="text"
-            onChange={handleChange}
-            value={searchTerm}
-            className={DarkModeCheck("search-bar")}
-            placeholder="Search for a country..."
-          />
-          <div
-            className={
-              isMinSearchLength
-                ? DarkModeCheck("SearchDropdown") + " toggle"
-                : DarkModeCheck("SearchDropdown")
-            }
-          >
-            <div className="filterLeft">
-              <ul>
-                {searchTerm.length > 2 &&
-                  countries.map((country) => {
-                    if (
-                      country.name
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase())
-                    ) {
-                      return (
-                        <li
-                          onClick={() =>
-                            history.push(`/country/${country.alpha3Code}`)
-                          }
-                          key={country.name}
-                        >
-                          {country.name}
-                        </li>
-                      );
-                    } else return null;
-                  })}
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="filterContainer">
-          <div onClick={handleToggle} className={DarkModeCheck("filterBtn")}>
-            <div className="filterLeft">Filter by region</div>
-            <i
-              className={
-                isToggled
-                  ? DarkModeCheck("filterRight") + " toggle"
-                  : DarkModeCheck("filterRight")
-              }
-            >
-              <BiChevronDown />
-            </i>
-          </div>
-          <div
-            className={
-              isToggled
-                ? DarkModeCheck("filterDropdown") + " toggle"
-                : DarkModeCheck("filterDropdown")
-            }
-          >
-            <div className="filterLeft">
-              <ul>
-                <li onClick={() => setFilter("")}>All</li>
-                <li onClick={() => setFilter("Africa")}>Africa</li>
-                <li onClick={() => setFilter("Americas")}>America</li>
-                <li onClick={() => setFilter("Asia")}>Asia</li>
-                <li onClick={() => setFilter("Europe")}>Europe</li>
-                <li onClick={() => setFilter("Oceania")}>Oceania</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      <SearchAndFilter
+        setFilter={setFilter}
+        filter={filter}
+        isDarkMode={isDarkMode}
+        isMinSearchLength={isMinSearchLength}
+        countries={countries}
+        searchTerm={searchTerm}
+        isToggled={isToggled}
+        handleChange={handleChange}
+        handleToggle={handleToggle}
+      />
       <ul className="countriesList">
         {filteredCountries &&
           filteredCountries.map((country) => (
-            <Country
+            <CountryCard
               key={country.name}
               country={country}
               isDarkMode={isDarkMode}

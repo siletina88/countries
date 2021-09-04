@@ -3,6 +3,7 @@ import "./Countrydetails.scss";
 import { BsArrowLeft } from "react-icons/bs";
 import axios from "axios";
 import { useHistory, useLocation } from "react-router-dom";
+import BorderCountries from "./BorderCountries";
 
 export default function CountryDetails({ isDarkMode, setIsDarkMode, match }) {
   const [country, setCountry] = useState("");
@@ -15,9 +16,6 @@ export default function CountryDetails({ isDarkMode, setIsDarkMode, match }) {
   const handleOnClick = () => {
     history.push(`/`);
   };
-  const handleRouteChange = (border) => {
-    history.push(`/country/${border}`);
-  };
 
   useEffect(() => {
     axios.get(fetchUrl).then((response) => {
@@ -27,13 +25,40 @@ export default function CountryDetails({ isDarkMode, setIsDarkMode, match }) {
 
   const c = country;
 
+  // const ResolveBorder = (border) => {
+  //   const [bolid, setBolid] = useState("");
+
+  //   useEffect(() => {
+  //     axios
+  //       .get(`https://restcountries.eu/rest/v2/alpha/${border.border}`)
+  //       .then((response) => {
+  //         setBolid(response.data);
+  //       });
+
+  //     console.log(border);
+  //   }, []);
+
+  //   return (
+  //     <div
+  //       key={border}
+  //       onClick={() => handleRouteChange(border)}
+  //       className={isDarkMode ? "btn darkMode" : "btn"}
+  //     >
+  //       {bolid.name}
+  //     </div>
+  //   );
+  // };
+
   if (c) {
     return (
       <div
         className={isDarkMode ? "countryDetails darkMode" : "countryDetails"}
       >
-        <div onClick={handleOnClick} className="btnContainer">
-          <div className={isDarkMode ? "btn darkMode" : "btn"}>
+        <div className="btnContainer">
+          <div
+            onClick={handleOnClick}
+            className={isDarkMode ? "btn darkMode" : "btn"}
+          >
             <i>
               <BsArrowLeft />
             </i>
@@ -92,13 +117,11 @@ export default function CountryDetails({ isDarkMode, setIsDarkMode, match }) {
               <p>Border Countries :</p>
               <ul>
                 {c.borders.map((border) => (
-                  <div
+                  <BorderCountries
+                    isDarkMode={isDarkMode}
+                    border={border}
                     key={border}
-                    onClick={() => handleRouteChange(border)}
-                    className={isDarkMode ? "btn darkMode" : "btn"}
-                  >
-                    {border}
-                  </div>
+                  ></BorderCountries>
                 ))}
               </ul>
             </div>

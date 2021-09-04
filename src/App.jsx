@@ -16,8 +16,6 @@ function App() {
     localStorage.setItem("theme", Boolean(isDarkMode));
   }, [isDarkMode]);
 
-  console.log(themeStorage);
-
   return (
     <BrowserRouter>
       <div className="container">

@@ -1,9 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import "./Country.scss";
+import "./CountryCard.scss";
 
-export default function Country({ isDarkMode, setIsDarkMode, country }) {
+export default function CountryCard({ isDarkMode, setIsDarkMode, country }) {
   const history = useHistory();
   const handleClick = () => {
     history.push(`/country/${country.alpha3Code}`);

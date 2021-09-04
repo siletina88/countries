@@ -1,6 +1,6 @@
 import React from "react";
-import "./navbar.scss";
-import { HiMoon } from "react-icons/hi";
+import "./Navbar.scss";
+import { HiMoon, HiOutlineMoon } from "react-icons/hi";
 
 export default function Navbar({ isDarkMode, setIsDarkMode }) {
   const handleToggler = () => {
@@ -16,10 +16,10 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
           {isDarkMode ? (
             <HiMoon style={{ color: "white" }}></HiMoon>
           ) : (
-            <HiMoon></HiMoon>
+            <HiOutlineMoon></HiOutlineMoon>
           )}
         </p>
-        <p>{isDarkMode ? "Light Mode" : "Dark Mode"}</p>
+        <p>Dark Mode</p>
       </div>
     </div>
   );
