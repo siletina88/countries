@@ -1,5 +1,5 @@
 import React from "react";
-import "./Navbar.scss";
+import "./navbar.scss";
 import { HiMoon, HiOutlineMoon } from "react-icons/hi";
 
 export default function Navbar({ isDarkMode, setIsDarkMode }) {
