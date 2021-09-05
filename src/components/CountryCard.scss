@@ -14,7 +14,7 @@
   flex: 1 1 17%;
   flex-direction: column;
   max-width: 320px;
-  min-width: 300px;
+  min-width: 280px;
   height: 330px;
   border-radius: 7px;
   background: $clr-white-elements;
@@ -31,7 +31,6 @@
   @include breakpoint(tablet) {
     flex: 1 1 30%;
   }
-
 
   @include breakpoint(mobileonly) {
     width: 100%;
