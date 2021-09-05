@@ -16,7 +16,7 @@
 }
 
 .countryDetails {
-  padding: 0 6rem;
+  padding: 0 10rem;
   display: flex;
   flex-direction: column;
 
@@ -26,6 +26,10 @@
 
   color: $clr-white-text;
   transition: background 200ms ease;
+
+  @include breakpoint(desktop) {
+    padding: 0 6rem;
+  }
 
   @include breakpoint(mobileonly) {
     padding: 0rem 2rem;
@@ -111,6 +115,7 @@
       display: flex;
       flex-direction: column;
       flex: 1;
+      gap: 2rem;
       p {
         font-weight: 600;
         letter-spacing: 0.2px;

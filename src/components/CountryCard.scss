@@ -27,7 +27,7 @@
   transition: transform 200ms ease;
 
   &:hover {
-    transform: scale(1.07);
+    transform: scale(1.03);
   }
 
   @include breakpoint(laptop) {

@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import "./SearchAndFilter.scss";
 
 export default function SearchAndFilter({
+  filter,
   setFilter,
   isDarkMode,
   isMinSearchLength,
@@ -69,7 +70,9 @@ export default function SearchAndFilter({
       </div>
       <div className="filterContainer">
         <div onClick={handleToggle} className={DarkModeCheck("filterBtn")}>
-          <div className="filterLeft">Filter by region</div>
+          <div className="filterLeft">
+            {filter ? `${filter}` : "Filter by Region"}
+          </div>
           <i
             className={
               isToggled
