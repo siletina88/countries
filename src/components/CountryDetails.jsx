@@ -53,7 +53,7 @@ export default function CountryDetails({ isDarkMode, match }) {
             <div className="sections">
               <div className="leftSection">
                 <p>
-                  Native name : <span>{c.name}</span>
+                  Native name : <span>{c.nativeName}</span>
                 </p>
                 <p>
                   Population : <span>{c.population.toLocaleString()}</span>
