@@ -21,11 +21,11 @@ export default function BorderCountries({ border, isDarkMode }) {
   }, [border]);
 
   return (
-    <div
+    <li
       onClick={() => handleRouteChange(border)}
       className={isDarkMode ? "btn2 darkMode" : "btn2"}
     >
       {bolid.name}
-    </div>
+    </li>
   );
 }

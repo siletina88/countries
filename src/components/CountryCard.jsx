@@ -10,7 +10,7 @@ export default function CountryCard({ isDarkMode, setIsDarkMode, country }) {
   };
 
   return (
-    <div onClick={handleClick} className={`card ${isDarkMode && `darkMode`}`}>
+    <li onClick={handleClick} className={`card ${isDarkMode && `darkMode`}`}>
       <div className="cardTop">
         <img src={country.flag} alt="country" />
       </div>
@@ -28,6 +28,6 @@ export default function CountryCard({ isDarkMode, setIsDarkMode, country }) {
           </p>
         </div>
       </div>
-    </div>
+    </li>
   );
 }
