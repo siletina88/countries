@@ -41,9 +41,9 @@
     transition: background 200ms ease;
   }
   .btnContainer {
-    padding: 3rem 0;
+    padding: 1rem 0;
     @include breakpoint(mobileonly) {
-      padding: 2rem 0;
+      padding: 1rem 0;
     }
     .btn {
       display: flex;
@@ -86,7 +86,7 @@
   }
   .detailsContainer {
     display: flex;
-    padding-top: 3rem;
+    padding-top: 2rem;
     gap: 6rem;
     @include breakpoint(laptop) {
       flex-direction: column;

@@ -38,6 +38,7 @@ export default function CountriesList({ isDarkMode, setIsDarkMode }) {
     axios.get("https://restcountries.eu/rest/v2/all").then((response) => {
       setCountries(response.data);
       setFilteredCountries(response.data);
+      window.scrollTo(0, 0);
     });
   }, [location]);
 
