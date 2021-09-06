@@ -4,6 +4,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import axios from "axios";
 import { useHistory, useLocation } from "react-router-dom";
 import BorderCountries from "./BorderCountries";
+import Map from "./Map";
 
 export default function CountryDetails({ isDarkMode, match }) {
   const [country, setCountry] = useState("");
@@ -103,6 +104,7 @@ export default function CountryDetails({ isDarkMode, match }) {
             </div>
           </div>
         </div>
+        <Map country={c} />
       </div>
     );
   } else {

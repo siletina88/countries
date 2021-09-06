@@ -16,7 +16,7 @@
 }
 
 .countryDetails {
-  padding: 0 10rem;
+  padding: 0 6rem;
   display: flex;
   flex-direction: column;
 
@@ -101,9 +101,13 @@
     .leftContainer {
       display: flex;
       flex: 1;
+      width: 100%;
+
       .imgContainer {
+        display: flex;
+
         width: 100%;
-        max-width: 80vw;
+
         img {
           width: 100%;
           object-fit: cover;
@@ -115,7 +119,7 @@
       display: flex;
       flex-direction: column;
       flex: 1;
-      gap: 2rem;
+
       p {
         font-weight: 600;
         letter-spacing: 0.2px;
