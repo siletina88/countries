@@ -1,0 +1,17 @@
+.map {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  gap: 10px;
+
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+
+  object-fit: contain;
+  height: 400px;
+}
