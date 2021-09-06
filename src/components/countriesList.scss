@@ -43,6 +43,7 @@
   .countriesList {
     justify-content: center;
     width: 100%;
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     gap: clamp(2rem, 3rem, 6rem);
