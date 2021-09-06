@@ -15,7 +15,7 @@ export default function Map({ country }) {
 
   useEffect(() => {
     setPosition(country.latlng);
-  });
+  }, [country.latlng]);
   return (
     <div className="map">
       Location on map :
