@@ -45,6 +45,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 2rem;
     gap: clamp(2rem, 3rem, 6rem);
   }
   &.darkMode {
