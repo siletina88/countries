@@ -21,6 +21,7 @@ export default function CountryDetails({ isDarkMode, match }) {
   useEffect(() => {
     axios.get(fetchUrl).then((response) => {
       setCountry(response.data);
+      window.scrollTo(0, 0);
     });
   }, [location, fetchUrl]);
 
