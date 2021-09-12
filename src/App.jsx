@@ -6,14 +6,12 @@ import CountryDetails from "./components/CountryDetails";
 import Navbar from "./components/Navbar";
 
 function App() {
-  const themeStorage = JSON.parse(localStorage.getItem("theme"));
+  const persistedTheme = JSON.parse(localStorage.getItem("theme"));
 
-  const [isDarkMode, setIsDarkMode] = useState(
-    themeStorage ? themeStorage : false
-  );
+  const [isDarkMode, setIsDarkMode] = useState(!!persistedTheme);
 
   useEffect(() => {
-    localStorage.setItem("theme", Boolean(isDarkMode));
+    localStorage.setItem("theme", isDarkMode);
   }, [isDarkMode]);
 
   return (
