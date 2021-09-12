@@ -29,7 +29,6 @@
 
   @include breakpoint(desktop) {
     padding: 0 6rem;
-    margin: 10rem;
   }
 
   @include breakpoint(mobileonly) {
