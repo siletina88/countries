@@ -4,7 +4,7 @@ import { HiMoon, HiOutlineMoon } from "react-icons/hi";
 
 export default function Navbar({ isDarkMode, setIsDarkMode }) {
   const handleToggler = () => {
-    setIsDarkMode(!isDarkMode);
+    setIsDarkMode((prevState) => !prevState);
   };
   return (
     <div
