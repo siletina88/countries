@@ -28,7 +28,7 @@ export default function BorderCountries({ border }) {
       .then((response) => {
         setBolid(response.data);
       });
-  }, []);
+  }, [border]);
 
   return (
     <li
