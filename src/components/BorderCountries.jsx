@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useTheme } from "../ThemeContext";
 
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "./BorderCountries.scss";
 
-export default function BorderCountries({ border, isDarkMode }) {
+export default function BorderCountries({ border }) {
   const [bolid, setBolid] = useState("");
   const history = useHistory();
+  const isDarkMode = useTheme();
 
   const handleRouteChange = (border) => {
     history.push(`/country/${border}`);
@@ -26,7 +28,7 @@ export default function BorderCountries({ border, isDarkMode }) {
       .then((response) => {
         setBolid(response.data);
       });
-  }, [border]);
+  }, []);
 
   return (
     <li

@@ -1,13 +1,15 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-
 import "./CountryCard.scss";
+import { useTheme } from "../ThemeContext";
 
-export default function CountryCard({ isDarkMode, setIsDarkMode, country }) {
+export default function CountryCard({ country }) {
   const history = useHistory();
   const handleClick = () => {
     history.push(`/country/${country.alpha3Code}`);
   };
+
+  const isDarkMode = useTheme();
 
   return (
     <li onClick={handleClick} className={`card ${isDarkMode && `darkMode`}`}>

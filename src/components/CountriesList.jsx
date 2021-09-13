@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./countriesList.scss";
-
 import CountryCard from "./CountryCard";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import SearchAndFilter from "./SearchAndFilter";
+import { useTheme } from "../ThemeContext";
 
-export default function CountriesList({ isDarkMode, setIsDarkMode }) {
+export default function CountriesList() {
   const [isToggled, setIsToggled] = useState(false);
   const [countries, setCountries] = useState("");
   const [filter, setFilter] = useState("");
@@ -16,6 +16,7 @@ export default function CountriesList({ isDarkMode, setIsDarkMode }) {
   const [isMinSearchLength, setIsMinSearchLength] = useState(false);
 
   const location = useLocation();
+  const isDarkMode = useTheme();
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -69,7 +70,6 @@ export default function CountriesList({ isDarkMode, setIsDarkMode }) {
       <SearchAndFilter
         setFilter={setFilter}
         filter={filter}
-        isDarkMode={isDarkMode}
         isMinSearchLength={isMinSearchLength}
         countries={countries}
         searchTerm={searchTerm}
@@ -80,12 +80,7 @@ export default function CountriesList({ isDarkMode, setIsDarkMode }) {
       <ul className="countriesList">
         {filteredCountries &&
           filteredCountries.map((country) => (
-            <CountryCard
-              key={country.name}
-              country={country}
-              isDarkMode={isDarkMode}
-              setIsDarkMode={setIsDarkMode}
-            />
+            <CountryCard key={country.name} country={country} />
           ))}
       </ul>
     </div>

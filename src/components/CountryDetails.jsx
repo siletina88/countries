@@ -5,14 +5,16 @@ import axios from "axios";
 import { useHistory, useLocation } from "react-router-dom";
 import BorderCountries from "./BorderCountries";
 import Map from "./Map";
+import { useTheme } from "../ThemeContext";
 
-export default function CountryDetails({ isDarkMode, match }) {
+export default function CountryDetails({ match }) {
   const [country, setCountry] = useState("");
   const countryParam = match.params.id;
   const fetchUrl = `
   https://restcountries.eu/rest/v2/alpha/${countryParam}`;
   const history = useHistory();
   const location = useLocation();
+  const isDarkMode = useTheme();
 
   const handleOnClick = () => {
     history.push(`/`);

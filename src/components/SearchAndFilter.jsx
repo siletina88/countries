@@ -3,11 +3,11 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { BiChevronDown } from "react-icons/bi";
 import { useHistory } from "react-router-dom";
 import "./SearchAndFilter.scss";
+import { useTheme } from "../ThemeContext";
 
 export default function SearchAndFilter({
   filter,
   setFilter,
-  isDarkMode,
   isMinSearchLength,
   countries,
   searchTerm,
@@ -16,6 +16,7 @@ export default function SearchAndFilter({
   handleToggle,
 }) {
   const history = useHistory();
+  const isDarkMode = useTheme();
 
   const DarkModeCheck = (className) => {
     if (isDarkMode) {
@@ -94,7 +95,7 @@ export default function SearchAndFilter({
             <ul>
               <li onClick={() => setFilter("")}>All</li>
               <li onClick={() => setFilter("Africa")}>Africa</li>
-              <li onClick={() => setFilter("Americas")}>America</li>
+              <li onClick={() => setFilter("Americas")}>Americas</li>
               <li onClick={() => setFilter("Asia")}>Asia</li>
               <li onClick={() => setFilter("Europe")}>Europe</li>
               <li onClick={() => setFilter("Oceania")}>Oceania</li>

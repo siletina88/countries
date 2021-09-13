@@ -1,17 +1,18 @@
 import React from "react";
 import "./navbar.scss";
 import { HiMoon, HiOutlineMoon } from "react-icons/hi";
+import { useTheme, useThemeToggle } from "../ThemeContext";
 
-export default function Navbar({ isDarkMode, setIsDarkMode }) {
-  const handleToggler = () => {
-    setIsDarkMode((prevState) => !prevState);
-  };
+export default function Navbar() {
+  const isDarkMode = useTheme();
+  const themeToggle = useThemeToggle();
+
   return (
     <div
       className={isDarkMode ? "navbarContainer darkMode" : "navbarContainer"}
     >
       <h1>Where in the world?</h1>
-      <div onClick={handleToggler} className="darkModeToggle">
+      <div onClick={themeToggle} className="darkModeToggle">
         <p>
           {isDarkMode ? (
             <HiMoon style={{ color: "white" }}></HiMoon>
