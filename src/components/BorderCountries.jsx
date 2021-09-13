@@ -12,6 +12,14 @@ export default function BorderCountries({ border, isDarkMode }) {
     history.push(`/country/${border}`);
   };
 
+  // const {data, loading, error } = useQuery({
+  //   url: `https://restcountries.eu/rest/v2/alpha/${border}`,
+  //   onError: () => toast.error('Something bad happened'),
+  //   onSuccess: () => toast.success('Some message')
+  // });
+
+  // const borderCountries = useBorderCountries();
+
   useEffect(() => {
     axios
       .get(`https://restcountries.eu/rest/v2/alpha/${border}`)
