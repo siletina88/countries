@@ -5,7 +5,7 @@ import axios from "axios";
 import { useHistory, useLocation } from "react-router-dom";
 import BorderCountries from "./BorderCountries";
 import Map from "./Map";
-import { useTheme } from "../ThemeContext";
+import { useTheme } from "../styles/ThemeContext";
 
 export default function CountryDetails({ match }) {
   const [country, setCountry] = useState("");
@@ -98,7 +98,6 @@ export default function CountryDetails({ match }) {
               <ul>
                 {c.borders.map((border) => (
                   <BorderCountries
-                    isDarkMode={isDarkMode}
                     border={border}
                     key={border}
                   ></BorderCountries>

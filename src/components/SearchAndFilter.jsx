@@ -3,7 +3,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { BiChevronDown } from "react-icons/bi";
 import { useHistory } from "react-router-dom";
 import "./SearchAndFilter.scss";
-import { useTheme } from "../ThemeContext";
+import { useTheme } from "../styles/ThemeContext";
 
 export default function SearchAndFilter({
   filter,

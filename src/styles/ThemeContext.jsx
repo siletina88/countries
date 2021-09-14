@@ -1,13 +1,14 @@
 import React, { useEffect, useState, useContext } from "react";
 
 const ThemeContext = React.createContext();
-const ThemeUpdateContext = React.createContext();
 
 export function useTheme() {
-  return useContext(ThemeContext);
+  const { isDarkMode } = useContext(ThemeContext);
+  return isDarkMode;
 }
 export function useThemeToggle() {
-  return useContext(ThemeUpdateContext);
+  const { themeToggle } = useContext(ThemeContext);
+  return themeToggle;
 }
 
 export function ThemeProvider({ children }) {
@@ -22,10 +23,8 @@ export function ThemeProvider({ children }) {
     setIsDarkMode((prevState) => !prevState);
   };
   return (
-    <ThemeContext.Provider value={isDarkMode}>
-      <ThemeUpdateContext.Provider value={themeToggle}>
-        {children}
-      </ThemeUpdateContext.Provider>
+    <ThemeContext.Provider value={{ isDarkMode, themeToggle }}>
+      {children}
     </ThemeContext.Provider>
   );
 }

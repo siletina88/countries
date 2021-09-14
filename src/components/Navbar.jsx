@@ -1,7 +1,7 @@
 import React from "react";
 import "./navbar.scss";
 import { HiMoon, HiOutlineMoon } from "react-icons/hi";
-import { useTheme, useThemeToggle } from "../ThemeContext";
+import { useTheme, useThemeToggle } from "../styles/ThemeContext";
 
 export default function Navbar() {
   const isDarkMode = useTheme();

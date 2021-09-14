@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useTheme } from "../ThemeContext";
+import { useTheme } from "../styles/ThemeContext";
 
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "./BorderCountries.scss";
 
 export default function BorderCountries({ border }) {
-  const [bolid, setBolid] = useState("");
+  const [borderCountry, setBorderCountry] = useState("");
   const history = useHistory();
   const isDarkMode = useTheme();
 
@@ -26,7 +26,7 @@ export default function BorderCountries({ border }) {
     axios
       .get(`https://restcountries.eu/rest/v2/alpha/${border}`)
       .then((response) => {
-        setBolid(response.data);
+        setBorderCountry(response.data);
       });
   }, [border]);
 
@@ -35,7 +35,7 @@ export default function BorderCountries({ border }) {
       onClick={() => handleRouteChange(border)}
       className={isDarkMode ? "btn2 darkMode" : "btn2"}
     >
-      {bolid.name}
+      {borderCountry.name}
     </li>
   );
 }

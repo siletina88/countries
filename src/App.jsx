@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import "../src/styles/main.scss";
 import CountriesList from "./components/CountriesList";
 import CountryDetails from "./components/CountryDetails";
 import Navbar from "./components/Navbar";
-import { ThemeProvider } from "../src/ThemeContext";
+import { ThemeProvider } from "../src/styles/ThemeContext";
+import "../src/styles/main.scss";
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import "./CountryCard.scss";
-import { useTheme } from "../ThemeContext";
+import { useTheme } from "../styles/ThemeContext";
 
 export default function CountryCard({ country }) {
   const history = useHistory();

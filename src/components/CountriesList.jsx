@@ -4,7 +4,7 @@ import CountryCard from "./CountryCard";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import SearchAndFilter from "./SearchAndFilter";
-import { useTheme } from "../ThemeContext";
+import { useTheme } from "../styles/ThemeContext";
 
 export default function CountriesList() {
   const [isToggled, setIsToggled] = useState(false);
