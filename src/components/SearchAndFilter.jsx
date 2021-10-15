@@ -27,10 +27,10 @@ export default function SearchAndFilter({ filter, setFilter, isMinSearchLength, 
             <ul>
               {searchTerm.length > 2 &&
                 countries.map((country) => {
-                  if (country.name.common.toLowerCase().includes(searchTerm.toLowerCase())) {
+                  if (country.name.toLowerCase().includes(searchTerm.toLowerCase())) {
                     return (
-                      <li onClick={() => history.push(`/country/${country.alpha3Code}`)} key={country.name.common}>
-                        {country.name.common}
+                      <li onClick={() => history.push(`/country/${country.alpha3Code}`)} key={country.name}>
+                        {country.name}
                       </li>
                     );
                   } else return null;
