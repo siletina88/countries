@@ -36,7 +36,7 @@ export default function CountriesList() {
   };
 
   useEffect(() => {
-    axios.get("https://restcountries.eu/rest/v2/all").then((response) => {
+    axios.get("https://restcountries.com/v2/all").then((response) => {
       setCountries(response.data);
       setFilteredCountries(response.data);
       window.scrollTo(0, 0);
@@ -59,14 +59,7 @@ export default function CountriesList() {
   return isLoading ? (
     <div className={isDarkMode ? "loader darkMode" : "loader"}>Loading...</div>
   ) : (
-    <div
-      className={
-        isDarkMode
-          ? "countriesListContainer darkMode"
-          : "countriesListContainer"
-      }
-      onClick={CloseSubmenus}
-    >
+    <div className={isDarkMode ? "countriesListContainer darkMode" : "countriesListContainer"} onClick={CloseSubmenus}>
       <SearchAndFilter
         setFilter={setFilter}
         filter={filter}
@@ -77,12 +70,7 @@ export default function CountriesList() {
         handleChange={handleChange}
         handleToggle={handleToggle}
       />
-      <ul className="countriesList">
-        {filteredCountries &&
-          filteredCountries.map((country) => (
-            <CountryCard key={country.name} country={country} />
-          ))}
-      </ul>
+      <ul className='countriesList'>{filteredCountries && filteredCountries.map((country) => <CountryCard key={country.name} country={country} />)}</ul>
     </div>
   );
 }

@@ -13,19 +13,19 @@ export default function CountryCard({ country }) {
 
   return (
     <li onClick={handleClick} className={`card ${isDarkMode && `darkMode`}`}>
-      <div className="cardTop">
-        <img src={country.flag} alt="country" />
+      <div className='cardTop'>
+        <img src={country.flag} alt='country' />
       </div>
       <div className={`cardBottom ${isDarkMode && `darkMode`}`}>
-        <div className="title">{country.name}</div>
-        <div className="info">
-          <p className="population">
+        <div className='title'>{country.name}</div>
+        <div className='info'>
+          <p className='population'>
             Population: <span>{country.population.toLocaleString()}</span>
           </p>
-          <p className="region">
+          <p className='region'>
             Region: <span>{country.region}</span>
           </p>
-          <p className="capital">
+          <p className='capital'>
             Capital: <span>{country.capital}</span>
           </p>
         </div>

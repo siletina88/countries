@@ -11,7 +11,7 @@ export default function CountryDetails({ match }) {
   const [country, setCountry] = useState("");
   const countryParam = match.params.id;
   const fetchUrl = `
-  https://restcountries.eu/rest/v2/alpha/${countryParam}`;
+  https://restcountries.com/v2/alpha/${countryParam}`;
   const history = useHistory();
   const location = useLocation();
   const isDarkMode = useTheme();
@@ -31,31 +31,26 @@ export default function CountryDetails({ match }) {
 
   if (c) {
     return (
-      <div
-        className={isDarkMode ? "countryDetails darkMode" : "countryDetails"}
-      >
-        <div className="btnContainer">
-          <div
-            onClick={handleOnClick}
-            className={isDarkMode ? "btn darkMode" : "btn"}
-          >
+      <div className={isDarkMode ? "countryDetails darkMode" : "countryDetails"}>
+        <div className='btnContainer'>
+          <div onClick={handleOnClick} className={isDarkMode ? "btn darkMode" : "btn"}>
             <i>
               <BsArrowLeft />
             </i>
-            <div className="btnInner">Back</div>
+            <div className='btnInner'>Back</div>
           </div>
         </div>
 
-        <div className="detailsContainer">
-          <div className="leftContainer">
-            <div className="imgContainer">
-              <img src={c.flag} alt="" />
+        <div className='detailsContainer'>
+          <div className='leftContainer'>
+            <div className='imgContainer'>
+              <img src={c.flag} alt='' />
             </div>
           </div>
-          <div className="rightContainer">
+          <div className='rightContainer'>
             <h1>{c.name}</h1>
-            <div className="sections">
-              <div className="leftSection">
+            <div className='sections'>
+              <div className='leftSection'>
                 <p>
                   Native name : <span>{c.nativeName}</span>
                 </p>
@@ -72,35 +67,23 @@ export default function CountryDetails({ match }) {
                   Capital : <span>{c.capital}</span>
                 </p>
               </div>
-              <div className="rightSection">
+              <div className='rightSection'>
                 <p>
                   Top Level Domain : <span>{c.topLevelDomain[0]}</span>
                 </p>
                 <p>
-                  Currencies :{" "}
-                  <span>
-                    {" "}
-                    {c.currencies.map(
-                      (currency) => `${currency.name} (${currency.code})  `
-                    )}
-                  </span>
+                  Currencies : <span> {c.currencies.map((currency) => `${currency.name} (${currency.code})  `)}</span>
                 </p>
                 <p>
-                  Languages :{" "}
-                  <span>
-                    {c.languages.map((language) => `${language.name}  `)}
-                  </span>
+                  Languages : <span>{c.languages.map((language) => `${language.name}  `)}</span>
                 </p>
               </div>
             </div>
-            <div className="borderContainer">
+            <div className='borderContainer'>
               <p>Border Countries :</p>
               <ul>
                 {c.borders.map((border) => (
-                  <BorderCountries
-                    border={border}
-                    key={border}
-                  ></BorderCountries>
+                  <BorderCountries border={border} key={border}></BorderCountries>
                 ))}
               </ul>
             </div>

@@ -23,18 +23,13 @@ export default function BorderCountries({ border }) {
   // const borderCountries = useBorderCountries();
 
   useEffect(() => {
-    axios
-      .get(`https://restcountries.eu/rest/v2/alpha/${border}`)
-      .then((response) => {
-        setBorderCountry(response.data);
-      });
+    axios.get(`https://restcountries.com/v2/alpha/${border}`).then((response) => {
+      setBorderCountry(response.data);
+    });
   }, [border]);
 
   return (
-    <li
-      onClick={() => handleRouteChange(border)}
-      className={isDarkMode ? "btn2 darkMode" : "btn2"}
-    >
+    <li onClick={() => handleRouteChange(border)} className={isDarkMode ? "btn2 darkMode" : "btn2"}>
       {borderCountry.name}
     </li>
   );

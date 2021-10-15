@@ -5,16 +5,7 @@ import { useHistory } from "react-router-dom";
 import "./SearchAndFilter.scss";
 import { useTheme } from "../styles/ThemeContext";
 
-export default function SearchAndFilter({
-  filter,
-  setFilter,
-  isMinSearchLength,
-  countries,
-  searchTerm,
-  isToggled,
-  handleChange,
-  handleToggle,
-}) {
+export default function SearchAndFilter({ filter, setFilter, isMinSearchLength, countries, searchTerm, isToggled, handleChange, handleToggle }) {
   const history = useHistory();
   const isDarkMode = useTheme();
 
@@ -25,42 +16,21 @@ export default function SearchAndFilter({
   };
 
   return (
-    <div className="searchAndFilter">
+    <div className='searchAndFilter'>
       <div className={DarkModeCheck("search")}>
         <i>
           <AiOutlineSearch />
         </i>
-        <input
-          type="text"
-          onChange={handleChange}
-          value={searchTerm}
-          className={DarkModeCheck("search-bar")}
-          placeholder="Search for a country..."
-        />
-        <div
-          className={
-            isMinSearchLength
-              ? DarkModeCheck("SearchDropdown") + " toggle"
-              : DarkModeCheck("SearchDropdown")
-          }
-        >
-          <div className="filterLeft">
+        <input type='text' onChange={handleChange} value={searchTerm} className={DarkModeCheck("search-bar")} placeholder='Search for a country...' />
+        <div className={isMinSearchLength ? DarkModeCheck("SearchDropdown") + " toggle" : DarkModeCheck("SearchDropdown")}>
+          <div className='filterLeft'>
             <ul>
               {searchTerm.length > 2 &&
                 countries.map((country) => {
-                  if (
-                    country.name
-                      .toLowerCase()
-                      .includes(searchTerm.toLowerCase())
-                  ) {
+                  if (country.name.common.toLowerCase().includes(searchTerm.toLowerCase())) {
                     return (
-                      <li
-                        onClick={() =>
-                          history.push(`/country/${country.alpha3Code}`)
-                        }
-                        key={country.name}
-                      >
-                        {country.name}
+                      <li onClick={() => history.push(`/country/${country.alpha3Code}`)} key={country.name.common}>
+                        {country.name.common}
                       </li>
                     );
                   } else return null;
@@ -69,29 +39,15 @@ export default function SearchAndFilter({
           </div>
         </div>
       </div>
-      <div className="filterContainer">
+      <div className='filterContainer'>
         <div onClick={handleToggle} className={DarkModeCheck("filterBtn")}>
-          <div className="filterLeft">
-            {filter ? `${filter}` : "Filter by Region"}
-          </div>
-          <i
-            className={
-              isToggled
-                ? DarkModeCheck("filterRight") + " toggle"
-                : DarkModeCheck("filterRight")
-            }
-          >
+          <div className='filterLeft'>{filter ? `${filter}` : "Filter by Region"}</div>
+          <i className={isToggled ? DarkModeCheck("filterRight") + " toggle" : DarkModeCheck("filterRight")}>
             <BiChevronDown />
           </i>
         </div>
-        <div
-          className={
-            isToggled
-              ? DarkModeCheck("filterDropdown") + " toggle"
-              : DarkModeCheck("filterDropdown")
-          }
-        >
-          <div className="filterLeft">
+        <div className={isToggled ? DarkModeCheck("filterDropdown") + " toggle" : DarkModeCheck("filterDropdown")}>
+          <div className='filterLeft'>
             <ul>
               <li onClick={() => setFilter("")}>All</li>
               <li onClick={() => setFilter("Africa")}>Africa</li>
